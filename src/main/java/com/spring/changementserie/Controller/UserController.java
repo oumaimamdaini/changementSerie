@@ -1,30 +1,29 @@
 package com.spring.changementserie.Controller;
 
 import com.spring.changementserie.Dto.Login;
-import com.spring.changementserie.Dto.UserDto;
+import com.spring.changementserie.Entity.User;
 import com.spring.changementserie.Response.LoginMsg;
-import com.spring.changementserie.Service.UserService;
+import com.spring.changementserie.Service.UserServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @RequestMapping(value = "/user")
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private UserServiceInterface userServiceInterface;
     @PostMapping(path="/save")
-    public String saveUser(@RequestBody UserDto userDto) {
+    public User createUser(@RequestBody User user) {
 
-        String id=userService.addUser(userDto);
-        return id;
+        return userServiceInterface.createUser(user);
     }
     @PostMapping(path="/login")
     public ResponseEntity<?> loginUser (@RequestBody Login login)
     {
-        LoginMsg loginMsg = userService.loginUser(login);
+        LoginMsg loginMsg = userServiceInterface.loginUser(login);
         return ResponseEntity.ok(loginMsg);
     }
 }

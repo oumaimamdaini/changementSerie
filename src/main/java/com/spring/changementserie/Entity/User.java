@@ -3,30 +3,34 @@ package com.spring.changementserie.Entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serializable;
 
-@Entity
-@Table(name="user")
-@Getter
-@Setter
-@ToString
+
+
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+@Entity
+@Table(name="user")
+public class User implements Serializable {
 
     @Id
-    @Column(name="id", length=45)
+    @Column(name="id")
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
-    @Column(name="nom",length = 255)
+    @Column(name="nom")
     private String nom;
-    @Column(name="login",length=255)
-    private String login;
-    @Column(name="password",length = 255)
+    @Column(name="email")
+    private String email;
+    @Column(name="password")
     private String password;
+
     @ManyToOne
+    @JoinColumn(name = "profil_id")
     private Profil profil;
 
 
-    public User(int id, String nom, String login, String encode) {
+    public User(int id, String nom, String email, String encode) {
     }
+
 }
