@@ -1,6 +1,6 @@
 package com.spring.changementserie.Controller;
 
-import com.spring.changementserie.Dto.Login;
+import com.spring.changementserie.Dto.UserDto;
 import com.spring.changementserie.Entity.User;
 import com.spring.changementserie.Response.LoginMsg;
 import com.spring.changementserie.Service.UserServiceInterface;
@@ -20,11 +20,11 @@ public class UserController {
 
         return userServiceInterface.createUser(user);
     }
-    @PostMapping(path="/login")
-    public ResponseEntity<?> loginUser (@RequestBody Login login)
+    /*@PostMapping(path="/login")
+    public ResponseEntity<?> loginUser (@RequestBody UserDto login)
     {
         LoginMsg loginMsg = userServiceInterface.loginUser(login);
         return ResponseEntity.ok(loginMsg);
-    }
+    }*/
 }
 

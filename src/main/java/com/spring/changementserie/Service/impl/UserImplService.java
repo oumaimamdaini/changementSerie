@@ -1,6 +1,6 @@
 package com.spring.changementserie.Service.impl;
 
-import com.spring.changementserie.Dto.Login;
+import com.spring.changementserie.Dto.UserDto;
 import com.spring.changementserie.Entity.User;
 import com.spring.changementserie.Repository.UserRepository;
 import com.spring.changementserie.Response.LoginMsg;
@@ -25,16 +25,16 @@ public class UserImplService implements UserServiceInterface {
     }
 
 
-@Override
-    public LoginMsg loginUser(Login login) {
+/*@Override
+    public LoginMsg loginUser(UserDto login) {
         String msg = "";
-        User user1 = userRepo.findByEmail(login.getLogin());
+        User user1 = userRepo.findByEmail(login.getEmailDto());
         if (user1 != null) {
-            String password = login.getPassword();
+            String password = login.getPasswordDto();
             String encodedPassword = user1.getPassword();
             Boolean isPwdRight = passwordEncoder.matches(password, encodedPassword);
             if (isPwdRight) {
-                Optional<User> user = userRepo.findByEmailAndPassword(login.getLogin(), encodedPassword);
+                Optional<User> user = userRepo.findByEmailAndPassword(login.getEmailDto(), encodedPassword);
                 if (user.isPresent()) {
                     return new LoginMsg("Login Success", true);
                 } else {
@@ -46,7 +46,7 @@ public class UserImplService implements UserServiceInterface {
         }else {
             return new LoginMsg("Email not exits", false);
         }
-    }
+    }*/
 
 
 
