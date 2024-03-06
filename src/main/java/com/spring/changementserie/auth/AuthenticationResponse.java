@@ -7,8 +7,15 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
 public class AuthenticationResponse {
     private String token;
+    private String status;
+    private  String message;
+
+    public AuthenticationResponse(String status, String message, String token) {
+        this.status = status;
+        this.message = message;
+        this.token = token;
+    }
 }

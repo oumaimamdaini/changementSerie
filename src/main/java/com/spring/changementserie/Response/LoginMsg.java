@@ -11,6 +11,4 @@ import lombok.ToString;
 @ToString
 public class LoginMsg {
     String message;
-    Boolean status;
-
 }

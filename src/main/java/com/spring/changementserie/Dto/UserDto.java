@@ -1,9 +1,7 @@
 package com.spring.changementserie.Dto;
 
-import com.spring.changementserie.Entity.User;
+import com.spring.changementserie.Models.User;
 import lombok.*;
-
-import static ch.qos.logback.classic.spi.ThrowableProxyVO.build;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,10 +20,10 @@ public class UserDto {
             .idDto(user.getId())
             .nomDto(user.getNom())
             .emailDto(user.getEmail())
-            .passwordDto(user.getPassword())
+         //   .passwordDto(user.getPassword())
                     .build();
 }
-public static UserDto toEntity(UserDto userDto){
+public static User toEntity(UserDto userDto){
         if(userDto==null){
             return null;
         }
@@ -33,8 +31,8 @@ public static UserDto toEntity(UserDto userDto){
         user.setId(userDto.getIdDto());
         user.setNom(userDto.getNomDto());
         user.setEmail(userDto.getEmailDto());
-        user.setPassword(userDto.getPasswordDto());
-    return userDto;
+       // user.setPassword(userDto.getPasswordDto());
+    return user;
     }
 
 }

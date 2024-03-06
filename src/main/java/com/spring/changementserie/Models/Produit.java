@@ -1,4 +1,25 @@
-package com.spring.changementserie.Entity;
+package com.spring.changementserie.Models;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name ="Produit")
 public class Produit {
+    @Id
+    @Column(name = "idProduit")
+    @GeneratedValue
+    private Integer idProduit;
+    @Column(name="nomProduit")
+    private String nomProduit;
+    @ManyToOne
+    @JoinColumn(name = "familleId")
+    private Famille famille;
+
+
 }

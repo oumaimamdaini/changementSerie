@@ -1,4 +1,28 @@
-package com.spring.changementserie.Entity;
+package com.spring.changementserie.Models;
 
-public class Interface {
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.io.Serializable;
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name="Interface")
+@Builder
+public class Interface implements Serializable {
+
+    @Id
+    @GeneratedValue
+    private Integer idInterface;
+    @Column(name="nomInterface")
+    private String nomInterface;
+    @Column(name = "quantité")
+    private Long quantité;
+    @Enumerated(EnumType.STRING)
+    private Etat etat;
+
 }

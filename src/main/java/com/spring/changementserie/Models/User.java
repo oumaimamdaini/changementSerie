@@ -1,4 +1,4 @@
-package com.spring.changementserie.Entity;
+package com.spring.changementserie.Models;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -6,7 +6,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
@@ -36,8 +35,7 @@ public class User implements UserDetails {
                private Profil profil;*/
 
 
-    public User(int id, String nom, String email, String encode) {
-    }
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

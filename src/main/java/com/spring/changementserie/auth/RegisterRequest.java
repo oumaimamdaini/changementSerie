@@ -1,6 +1,6 @@
 package com.spring.changementserie.auth;
 
-import com.spring.changementserie.Entity.Profil;
+import com.spring.changementserie.Models.Profil;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

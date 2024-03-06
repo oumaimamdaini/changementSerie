@@ -1,4 +1,4 @@
-package com.spring.changementserie.Entity;
+package com.spring.changementserie.Models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
