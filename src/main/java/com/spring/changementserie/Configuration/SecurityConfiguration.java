@@ -24,12 +24,19 @@ public class SecurityConfiguration {
     http
             .csrf(AbstractHttpConfigurer::disable)
             .authorizeHttpRequests(req ->
-                    req.requestMatchers("/auth/**")
+                    req.requestMatchers("/auth/**",
+                                    "/interface/**",
+                                    "/famille/**",
+                                    "/produit/**",
+                                    "/checklist/**",
+                                    "/changementserie/**",
+                                    "/demandechangement/**",
+                                    "/testeur/**",
+                                    "/rapport/**"
+
+
+                                    )
                             .permitAll()
-
-
-
-
                             .anyRequest()
                             .authenticated()
 

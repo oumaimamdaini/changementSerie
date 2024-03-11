@@ -1,14 +1,16 @@
 package com.spring.changementserie.Service.impl;
 
 import com.spring.changementserie.Dto.UserDto;
-import com.spring.changementserie.Entity.User;
+import com.spring.changementserie.Models.User;
 import com.spring.changementserie.Repository.UserRepository;
-import com.spring.changementserie.Response.LoginMsg;
 import com.spring.changementserie.Service.UserServiceInterface;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 @Service
 
@@ -23,6 +25,52 @@ public class UserImplService implements UserServiceInterface {
         user.setPassword(encodedPassword);
         return userRepo.save(user);
     }
+    public User getUser(Integer id){
+        return  userRepo.findById(id).get();
+    }
+    public void deleteUser(Integer id) {
+        userRepo.deleteById(id);
+    }
+
+
+    public User update(User updatedUser, Integer id) {
+        Optional<User> optionalUser = userRepo.findById(id);
+
+        if (optionalUser.isPresent()) {
+            User existingUser = optionalUser.get();
+
+            if (updatedUser.getNom() != null) {
+                existingUser.setNom(updatedUser.getNom());
+            }
+
+            if (updatedUser.getEmail() != null) {
+                existingUser.setEmail(updatedUser.getEmail());
+            }
+
+            if (updatedUser.getPassword() != null) {
+                existingUser.setPassword(updatedUser.getPassword());
+            }
+
+            if (updatedUser.getProfil() != null) {
+                existingUser.setProfil(updatedUser.getProfil());
+            }
+
+            return userRepo.save(existingUser);
+        }
+
+        return null;
+    }
+
+    @Override
+    public Optional<User> getUserById(Integer idUser) {
+        return userRepo.findById(idUser);
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        return userRepo.findAll();
+    }
+
 
 
 /*@Override
@@ -49,7 +97,6 @@ public class UserImplService implements UserServiceInterface {
     }*/
 
 
-
-
-
 }
+
+

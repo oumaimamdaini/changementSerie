@@ -1,9 +1,7 @@
 package com.spring.changementserie.Dto;
 
-import com.spring.changementserie.Entity.User;
+import com.spring.changementserie.Models.User;
 import lombok.*;
-
-import static ch.qos.logback.classic.spi.ThrowableProxyVO.build;
 
 @AllArgsConstructor
 @NoArgsConstructor

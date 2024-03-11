@@ -1,14 +1,14 @@
 package com.spring.changementserie.auth;
 
 import com.spring.changementserie.Configuration.JwtService;
-import com.spring.changementserie.Entity.Profil;
+import com.spring.changementserie.Models.Profil;
 import com.spring.changementserie.Repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import com.spring.changementserie.Entity.User;
+import com.spring.changementserie.Models.User;
 
 
 @Service
