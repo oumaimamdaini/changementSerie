@@ -10,6 +10,7 @@ import lombok.*;
 public class UserDto {
     private Integer idDto;
     private String nomDto;
+    private String prenomDto;
     private String emailDto;
     private String passwordDto;
     public static UserDto fromEntity(User user){
@@ -18,7 +19,8 @@ public class UserDto {
         }
     return UserDto.builder()
             .idDto(user.getId())
-            .nomDto(user.getNom())
+            .nomDto(user.getFirstName())
+            .prenomDto(user.getLastName())
             .emailDto(user.getEmail())
             .passwordDto(user.getPassword())
                     .build();
@@ -29,7 +31,8 @@ public static UserDto toEntity(UserDto userDto){
         }
         User user=new User();
         user.setId(userDto.getIdDto());
-        user.setNom(userDto.getNomDto());
+        user.setFirstName(userDto.getNomDto());
+        user.setLastName(userDto.getPrenomDto());
         user.setEmail(userDto.getEmailDto());
         user.setPassword(userDto.getPasswordDto());
     return userDto;

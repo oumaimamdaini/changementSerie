@@ -14,7 +14,7 @@ public class UserController {
 
     @Autowired
     private UserImplService userImplService;
-    @PostMapping(path="/save")
+    @PostMapping(path="/createUser")
     public User createUser(@RequestBody User user) {
 
         return userImplService.createUser(user);
@@ -24,7 +24,7 @@ public class UserController {
         return userImplService.update(user, id);
     }
     @DeleteMapping(path="/deleteUser/{id}")
-    public void deleteUser(Integer id){
+    public void deleteUser(@PathVariable Integer id){
         userImplService.deleteUser(id);
     }
     @GetMapping(path="/getUserById/{idUser}")
@@ -32,8 +32,8 @@ public class UserController {
         return userImplService.getUserById(idUser);
     }
 
-    @GetMapping(path="/getAllUser")
-    public List<User> getAllUser() {
+    @GetMapping(path="/getAllUsers")
+    public List<User> getAllUsers() {
         return userImplService.getAllUsers();
     }
 

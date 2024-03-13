@@ -32,7 +32,8 @@ public class SecurityConfiguration {
                                     "/changementserie/**",
                                     "/demandechangement/**",
                                     "/testeur/**",
-                                    "/rapport/**"
+                                    "/rapport/**",
+                            "/user/**"
 
 
                                     )
