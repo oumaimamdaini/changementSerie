@@ -39,17 +39,17 @@ public class UserImplService implements UserServiceInterface {
         if (optionalUser.isPresent()) {
             User existingUser = optionalUser.get();
 
-            if (updatedUser.getNom() != null) {
-                existingUser.setNom(updatedUser.getNom());
+            if (updatedUser.getFirstName() != null) {
+                existingUser.setFirstName(updatedUser.getFirstName());
+            }
+            if (updatedUser.getLastName() != null) {
+                existingUser.setLastName(updatedUser.getLastName());
             }
 
             if (updatedUser.getEmail() != null) {
                 existingUser.setEmail(updatedUser.getEmail());
             }
 
-            if (updatedUser.getPassword() != null) {
-                existingUser.setPassword(updatedUser.getPassword());
-            }
 
             if (updatedUser.getProfil() != null) {
                 existingUser.setProfil(updatedUser.getProfil());

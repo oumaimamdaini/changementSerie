@@ -21,11 +21,6 @@ public class Rapport implements Serializable{
         @Column(name = "descRapport")
            private String descRapport;
 
-   /*@OneToMany(mappedBy = "rapport")
-    private List<Checklist> checklist;
-    @OneToMany(mappedBy = "famille")
-    private List<Rapport> rapport;*/
-
     @OneToMany(mappedBy = "rapport")
     private List<Checklist> checklists;
 

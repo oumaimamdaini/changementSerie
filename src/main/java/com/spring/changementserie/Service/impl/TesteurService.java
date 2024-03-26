@@ -43,8 +43,8 @@ public class TesteurService implements TesteurInterface {
                 existingTesteur.setQteTesteur(updatedTesteur.getQteTesteur());
             }
 
-            if (updatedTesteur.getUF() != null) {
-                existingTesteur.setUF(updatedTesteur.getUF());
+            if (updatedTesteur.getUf() != null) {
+                existingTesteur.setUf(updatedTesteur.getUf());
             }
 
             if (updatedTesteur.getLigneCMS2() != null) {

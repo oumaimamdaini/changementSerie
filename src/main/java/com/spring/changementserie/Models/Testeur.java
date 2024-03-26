@@ -26,13 +26,13 @@ public class Testeur implements Serializable {
     private Integer qteTesteur;
 
     @Column(name = "UF")
-    private String UF;
+    private String uf;
 
     @Column(name = "ligneCMS2")
     private String ligneCMS2;
 
     @Column(name = "Atelier")
-    private String Atelier;
+    private String atelier;
 
     @OneToMany(mappedBy = "testeur")
     private List<Checklist> checklists;

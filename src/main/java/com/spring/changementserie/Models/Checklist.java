@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -42,7 +44,7 @@ public class Checklist implements Serializable {
     private Testeur testeur;
 
     @ManyToMany(mappedBy = "checklists")
-    private List<User> users;
+    private Set<User> users;
 
     @OneToMany(mappedBy = "checklist")
     private List<Produit> produits;

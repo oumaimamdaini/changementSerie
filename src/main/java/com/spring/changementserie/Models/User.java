@@ -8,9 +8,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -22,8 +24,10 @@ public class User implements UserDetails {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "nom")
-    private String nom;
+    @Column(name = "First Name")
+    private String firstName;
+    @Column(name = "Last Name")
+    private String lastName;
     @Column(name = "email")
     private String email;
     @Column(name = "password")
@@ -31,8 +35,13 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Profil profil;
 
-    @ManyToMany(mappedBy = "users")
-    private List<Checklist> checklists;
+    @ManyToMany
+    @JoinTable(
+            name = "user_checklist",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "checklist_id")
+    )
+    private Set<Checklist> checklists;
 
     @OneToMany(mappedBy = "user")
     private List<DemandeChangement> demandesChangement;
